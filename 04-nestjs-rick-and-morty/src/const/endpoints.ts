@@ -1,3 +1,4 @@
 export const endpoints = {
-  getCharacter: '/api/character',
+  getCharacter: (id: number ) => `/api/character/${id}`,
+  getAllCharacters: () => '/api/character'
 }

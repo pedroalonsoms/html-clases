@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { PageTemplate } from '@/ui/organisms/PageTemplate'
+import { PageTemplate } from '@/ui/PageTemplate'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })

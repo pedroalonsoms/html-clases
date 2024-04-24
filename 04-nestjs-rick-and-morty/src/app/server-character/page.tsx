@@ -1,6 +1,6 @@
 import { paths } from '@/const/paths'
 import { getCharacter } from '@/services/getCharacter'
-import { CharacterComponent } from '@/ui/organisms/Character'
+import { CharacterComponent } from '@/ui/Character'
 import Link from 'next/link'
 
 export default async function ServerPage() {
