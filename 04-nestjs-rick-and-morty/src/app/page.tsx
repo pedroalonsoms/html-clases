@@ -1,5 +1,5 @@
-import { paths } from '@/const/paths'
-import Link from 'next/link'
+import { paths } from "@/const/paths";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
       <br />
       <Link href={paths.clientComponent}>Client Component</Link>
     </div>
-  )
+  );
 }

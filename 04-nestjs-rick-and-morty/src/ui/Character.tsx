@@ -1,29 +1,56 @@
-import Image from 'next/image'
-import { Character } from '@/types/Character'
+"use client";
+import Image from "next/image";
+import { Character } from "@/types/Character";
+import { Star } from "./Star";
+import { useEffect, useState } from "react";
+import db from "@/app/controllers/db";
+import { useRouter } from "next/navigation";
+import { paths } from "@/const/paths";
 
 interface CharacterComponentProps {
-  character: Character
+  character: Character;
 }
 
 export function CharacterComponent({
-  character: { name, image, status, gender },
+  character: { id, name, image, status, gender, location },
 }: CharacterComponentProps) {
+  const router = useRouter();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    setIsFavorite(db.isFavorite(id));
+  }, [id]);
+
   return (
-    <div className='flex min-w-[250px] rounded-md bg-slate-700'>
+    <div className="relative z-0 flex rounded-md bg-slate-700">
       <Image
         src={image}
-        alt='character'
+        alt="character"
         width={100}
         height={100}
         unoptimized
-        className='rounded-l-md'
+        className="h-auto rounded-l-md"
       />
-      <div className='flex flex-col p-2 text-xs'>
-        <span>{name}</span>
+      <div className="flex flex-col p-2 text-xs">
+        <button
+          className="absolute right-2 top-2"
+          onClick={(e) => {
+            db.toggleFavoriteCharacter(id);
+            setIsFavorite(!isFavorite);
+
+            if (window.location.pathname === paths.favoriteCharacters) {
+              window.location.reload(); // triggers a refresh only on favorite page
+            }
+          }}
+        >
+          <Star isChecked={isFavorite} />
+        </button>
+        <span className="text-lg">{name}</span>
         <span>
           {status} - {gender}
         </span>
+        <span>Location: {location.name}</span>
       </div>
     </div>
-  )
+  );
 }

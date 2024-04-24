@@ -1,6 +1,6 @@
-import { paths } from '@/const/paths'
-import { ClientCharacter } from '@/ui/ClientCharacter'
-import Link from 'next/link'
+import { paths } from "@/const/paths";
+import { ClientCharacter } from "@/ui/ClientCharacter";
+import Link from "next/link";
 
 export default async function ServerPage() {
   return (
@@ -8,5 +8,5 @@ export default async function ServerPage() {
       <Link href={paths.serverComponent}>Sever component</Link>
       <ClientCharacter />
     </>
-  )
+  );
 }
