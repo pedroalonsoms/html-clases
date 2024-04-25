@@ -4,8 +4,8 @@ import { Character } from "@/types/Character";
 import { Star } from "./Star";
 import { useEffect, useState } from "react";
 import db from "@/app/controllers/db";
-import { useRouter } from "next/navigation";
 import { paths } from "@/const/paths";
+import Link from "next/link";
 
 interface CharacterComponentProps {
   character: Character;
@@ -14,7 +14,6 @@ interface CharacterComponentProps {
 export function CharacterComponent({
   character: { id, name, image, status, gender, location },
 }: CharacterComponentProps) {
-  const router = useRouter();
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -29,9 +28,9 @@ export function CharacterComponent({
         width={100}
         height={100}
         unoptimized
-        className="h-auto rounded-l-md"
+        className="h-auto rounded-l-md object-cover"
       />
-      <div className="flex flex-col p-2 text-xs">
+      <div className="p-2">
         <button
           className="absolute right-2 top-2"
           onClick={(e) => {
@@ -45,11 +44,17 @@ export function CharacterComponent({
         >
           <Star isChecked={isFavorite} />
         </button>
-        <span className="text-lg">{name}</span>
-        <span>
+        <p className="text-lg">{name}</p>
+        <p className="text-sm">
           {status} - {gender}
-        </span>
-        <span>Location: {location.name}</span>
+        </p>
+        <p className="text-sm">Location: {location.name}</p>
+        <Link
+          href={`${paths.character}/${id}`}
+          className="mt-2 inline-block rounded-lg bg-slate-800 px-2 py-1 text-sm"
+        >
+          Learn More
+        </Link>
       </div>
     </div>
   );

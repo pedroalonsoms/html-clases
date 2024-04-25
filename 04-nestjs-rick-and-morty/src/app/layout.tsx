@@ -27,9 +27,7 @@ export default function RootLayout({
               <Link href={paths.favoriteCharacters}>Favorite characters</Link>
             </div>
           </nav>
-          <div className="mx-auto grid max-w-screen-lg grid-cols-3 gap-10 pt-10">
-            {children}
-          </div>
+          {children}
         </main>
       </body>
     </html>
