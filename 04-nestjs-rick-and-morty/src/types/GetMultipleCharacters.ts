@@ -1,3 +1,3 @@
-import { Character } from "./Character";
+import { Character } from './Character'
 
-export type GetMultipleCharacters = Character[];
+export type GetMultipleCharacters = Character[]

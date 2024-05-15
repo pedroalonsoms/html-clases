@@ -1,3 +1,3 @@
-import { Episode } from "./Episode";
+import { Episode } from './Episode'
 
-export type GetMultipleEpisodes = Episode[];
+export type GetMultipleEpisodes = Episode[]
