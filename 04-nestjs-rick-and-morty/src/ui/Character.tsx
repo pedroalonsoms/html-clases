@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Character } from '@/types/Character'
 import { Star } from './Star'
 import { useEffect, useState } from 'react'
-import db from '@/app/controllers/db'
+import * as db from '@/app/controllers/db'
 import { paths } from '@/const/paths'
 import Link from 'next/link'
 
@@ -33,7 +33,7 @@ export function CharacterComponent({
       <div className='p-2'>
         <button
           className='absolute right-2 top-2'
-          onClick={(e) => {
+          onClick={() => {
             db.toggleFavoriteCharacter(id)
             setIsFavorite(!isFavorite)
 

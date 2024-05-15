@@ -10,9 +10,13 @@ export default async function ServerPage({
   const character = await getCharacter(parseInt(params.id))
 
   // parse id from urls
-  const episodesIds = character.episode.map((url) =>
-    parseInt(url.split('/').pop()!),
-  )
+  const episodesIds = character.episode.map((url) => {
+    const episodeId = url.split('/').pop()
+    if (!episodeId) {
+      throw new Error('ERROR: could not parse episode id from URL')
+    }
+    return parseInt(episodeId)
+  })
   // do second api call
   const episodes = await getMultipleEpisodes(episodesIds)
 
