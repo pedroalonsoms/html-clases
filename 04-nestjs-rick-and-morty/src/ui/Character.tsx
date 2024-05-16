@@ -7,7 +7,6 @@ import * as db from '@/app/controllers/db'
 import { paths } from '@/const/paths'
 import Link from 'next/link'
 
-// testing
 interface CharacterComponentProps {
   character: Character
 }
