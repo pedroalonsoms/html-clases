@@ -11,6 +11,8 @@ interface CharacterComponentProps {
   character: Character
 }
 
+// should be picked up by prettier
+
 export function CharacterComponent({
   character: { id, name, image, status, gender, location },
 }: CharacterComponentProps) {
