@@ -11,7 +11,7 @@ interface CharacterComponentProps {
   character: Character
 }
 
-//
+// a
 export function CharacterComponent({
   character: { id, name, image, status, gender, location },
 }: CharacterComponentProps) {
