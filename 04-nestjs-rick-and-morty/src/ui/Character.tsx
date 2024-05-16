@@ -11,7 +11,7 @@ interface CharacterComponentProps {
   character: Character
 }
 
-                export function CharacterComponent({
+                    export function CharacterComponent({
   character: { id, name, image, status, gender, location },
 }: CharacterComponentProps) {
   const [isFavorite, setIsFavorite] = useState(false)
