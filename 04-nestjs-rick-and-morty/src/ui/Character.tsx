@@ -3,11 +3,11 @@ import Image from 'next/image'
 import { Character } from '@/types/Character'
 import { Star } from './Star'
 import { useEffect, useState } from 'react'
-import * as db from '@/app/controllers/db'
+import * as db from '@/controllers/db'
 import { paths } from '@/const/paths'
 import Link from 'next/link'
 
-interface CharacterComponentProps {
+export interface CharacterComponentProps {
   character: Character
 }
 
@@ -21,7 +21,10 @@ export function CharacterComponent({
   }, [id])
 
   return (
-    <div className='relative z-0 flex rounded-md bg-slate-700'>
+    <div
+      data-testid='character-component'
+      className='relative z-0 flex rounded-md bg-slate-700'
+    >
       <Image
         src={image}
         alt='character'
