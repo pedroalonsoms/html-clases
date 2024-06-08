@@ -6,7 +6,6 @@ env:
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
   POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
   
-# ignore md changes
 on:
   push:
     branches: main
