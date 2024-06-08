@@ -22,20 +22,14 @@ jobs:
         with:
           node-version: 20
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          version: 9.2.0
-          run_install: false
-
       - name: Install dependencies
-        run: pnpm i
+        run: npm i
 
       - name: Lint
-        run: pnpm run lint
+        run: npm run lint
 
       - name: Run tests
-        run: pnpm run test:ci
+        run: npm run test:ci
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
