@@ -12,6 +12,10 @@ on:
     paths-ignore:
       - '**.md'
 
+defaults:
+  run:
+    working-directory: ./04-nestjs-rick-and-morty
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -32,22 +36,18 @@ jobs:
 
       - name: Install dependencies
         run: pnpm i
-        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Run tests
         run: pnpm run test:ci
-        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Install Vercel CLI
         run: pnpm add -g vercel@latest
 
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ env.VERCEL_TOKEN }}
-        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Build Project Artifacts
         run: vercel build --prod
-        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
