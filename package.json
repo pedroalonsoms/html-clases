@@ -1,0 +1,21 @@
+{
+  "name": "html-clases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm exec vercel build --yes --prod",
+    "deploy": "pnpm exec vercel deploy --prebuilt --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "dependencies": {
+    "vercel": "^34.2.6"
+  },
+  "packageManager": "pnpm@9.2.0"
+}
