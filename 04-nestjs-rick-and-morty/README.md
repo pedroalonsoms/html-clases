@@ -1,7 +1,6 @@
 # Drizzle and GitHub Actions - Rick & Morty Favorites
 
 ![Tests](https://github.com/pedroalonsoms/html-clases/actions/workflows/test-coverage.yml/badge.svg)
-
 [![codecov](https://codecov.io/github/pedroalonsoms/html-clases/graph/badge.svg?token=OTIKZMZ4YT)](https://codecov.io/github/pedroalonsoms/html-clases)
 
 **Author:** Pedro Alonso Moreno Salcedo
