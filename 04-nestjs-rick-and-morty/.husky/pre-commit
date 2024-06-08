@@ -1,1 +1,1 @@
-cd 04-nestjs-rick-and-morty && npx lint-staged
+cd 04-nestjs-rick-and-morty && pnpm exec lint-staged

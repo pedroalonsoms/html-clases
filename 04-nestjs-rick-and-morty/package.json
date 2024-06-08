@@ -1,8 +1,12 @@
 {
   "name": "04-nestjs-rick-and-morty",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
   "type": "module",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
