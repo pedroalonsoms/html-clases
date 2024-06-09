@@ -47,4 +47,4 @@ jobs:
         run: vercel deploy --prebuilt --prod --token=${{ env.VERCEL_TOKEN }}
 
       - name: Migrate DB
-        run: npm run db:migrate --config=drizzle-vercel.config.ts
+        run: npm run db:migrate -- --config=drizzle-vercel.config.ts
