@@ -41,8 +41,8 @@ export function CharacterComponent({
       <div className='p-2'>
         <button
           className='absolute right-2 top-2'
-          onClick={() => {
-            toggleFavoriteCharacter(id)
+          onClick={async () => {
+            await toggleFavoriteCharacter(id)
             setIsFavorite(!isFavorite)
 
             if (window.location.pathname === paths.favoriteCharacters) {
