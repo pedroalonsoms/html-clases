@@ -4,9 +4,12 @@
 [![codecov](https://codecov.io/github/pedroalonsoms/html-clases/graph/badge.svg?token=OTIKZMZ4YT)](https://codecov.io/github/pedroalonsoms/html-clases)
 
 **Author:** Pedro Alonso Moreno Salcedo
-**Registration:**: A01741437
-**Class:**: Desarrollo e implantación de sistemas de software (Gpo 101)
-**Teacher:**: Abraham Galindo Rodríguez
+
+**Registration:** A01741437
+
+**Class:** Desarrollo e implantación de sistemas de software (Gpo 101)
+
+**Teacher:** Abraham Galindo Rodríguez
 
 ## Overview
 
