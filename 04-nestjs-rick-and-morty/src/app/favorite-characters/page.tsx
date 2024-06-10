@@ -1,9 +1,9 @@
 'use client'
+import { getFavoriteCharactersIds } from '@/services/getFavoriteCharactersIds'
 import { getMultipleCharacters } from '@/services/getMultipleCharacters'
 import { GetMultipleCharacters } from '@/types/GetMultipleCharacters'
 import { CharacterComponent } from '@/ui/Character'
 import { useEffect, useState } from 'react'
-import * as db from '@/controllers/db'
 
 export default function ClientPage() {
   const [favoriteCharacters, setFavoriteCharacters] = useState<
@@ -13,8 +13,9 @@ export default function ClientPage() {
   useEffect(() => {
     const loadFavoriteCharacters = async () => {
       // Do the fetch
+      const favoriteCharactersIds = await getFavoriteCharactersIds()
       const favoriteCharacters = await getMultipleCharacters(
-        db.getFavoriteCharacters(),
+        favoriteCharactersIds,
       )
       setFavoriteCharacters(favoriteCharacters)
     }

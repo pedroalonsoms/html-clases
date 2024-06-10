@@ -3,9 +3,10 @@ import Image from 'next/image'
 import { Character } from '@/types/Character'
 import { Star } from './Star'
 import { useEffect, useState } from 'react'
-import * as db from '@/controllers/db'
 import { paths } from '@/const/paths'
 import Link from 'next/link'
+import { isFavoriteCharacter } from '@/services/isFavoriteCharacter'
+import { toggleFavoriteCharacter } from '@/services/toggleFavoriteCharacter'
 
 export interface CharacterComponentProps {
   character: Character
@@ -17,7 +18,11 @@ export function CharacterComponent({
   const [isFavorite, setIsFavorite] = useState(false)
 
   useEffect(() => {
-    setIsFavorite(db.isFavorite(id))
+    async function fetchFavoriteData() {
+      const _isFavorite = await isFavoriteCharacter(id)
+      setIsFavorite(_isFavorite)
+    }
+    fetchFavoriteData()
   }, [id])
 
   return (
@@ -37,7 +42,7 @@ export function CharacterComponent({
         <button
           className='absolute right-2 top-2'
           onClick={() => {
-            db.toggleFavoriteCharacter(id)
+            toggleFavoriteCharacter(id)
             setIsFavorite(!isFavorite)
 
             if (window.location.pathname === paths.favoriteCharacters) {
