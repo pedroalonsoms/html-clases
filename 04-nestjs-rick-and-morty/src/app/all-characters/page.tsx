@@ -1,6 +1,8 @@
 import { getAllCharacters } from '@/services/getAllCharacters'
 import { CharacterComponent } from '@/ui/Character'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ServerPage() {
   const characters = await getAllCharacters()
   return (
