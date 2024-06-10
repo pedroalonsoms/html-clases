@@ -6,10 +6,6 @@ on:
   pull_request:
     types: [opened, reopened]
 
-defaults:
-  run:
-    working-directory: ./04-nestjs-rick-and-morty
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,12 +20,15 @@ jobs:
 
       - name: Install dependencies
         run: npm i
+        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Lint
         run: npm run lint
+        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Run tests
         run: npm run test:ci
+        working-directory: ./04-nestjs-rick-and-morty
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
