@@ -1,5 +1,5 @@
 {
-  "id": "62272ee0-fa75-45eb-9cc9-2da47653ff81",
+  "id": "36a40170-9ad1-4136-97a4-c20d1c26083a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -14,24 +14,68 @@
           "primaryKey": true,
           "notNull": true
         },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
         "character_id": {
           "name": "character_id",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
-        },
-        "created": {
-          "name": "created",
-          "type": "timestamp",
-          "primaryKey": false,
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "favorites_user_id__user_id_fk": {
+          "name": "favorites_user_id__user_id_fk",
+          "tableFrom": "favorites",
+          "tableTo": "_user",
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public._user": {
+      "name": "_user",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
           "notNull": true,
-          "default": "now()"
+          "default": "gen_random_uuid()"
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "_user_email_unique": {
+          "name": "_user_email_unique",
+          "nullsNotDistinct": false,
+          "columns": ["email"]
+        }
+      }
     }
   },
   "enums": {},
