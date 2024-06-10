@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 import { paths } from '@/const/paths'
-import { auth, signOut } from '@/auth'
+import { auth } from '@/auth'
+import SignOutButton from '@/ui/SignOutButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,14 +30,7 @@ export default async function RootLayout({
               <div className='flex gap-10'>
                 <Link href={paths.allCharacters}>All characters</Link>
                 <Link href={paths.favoriteCharacters}>Favorite characters</Link>
-                <form
-                  action={async () => {
-                    'use server'
-                    await signOut({ redirectTo: paths.signIn })
-                  }}
-                >
-                  <button type='submit'>Sign Out</button>
-                </form>
+                <SignOutButton />
               </div>
             </nav>
           )}
