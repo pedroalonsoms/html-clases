@@ -36,3 +36,5 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           root_dir: ./04-nestjs-rick-and-morty
+          working-directory: ./04-nestjs-rick-and-morty
+          directory: ./04-nestjs-rick-and-morty/coverage
