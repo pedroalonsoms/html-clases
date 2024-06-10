@@ -19,7 +19,7 @@ export default defineConfig({
       ],
       // if you want to exclude some files
       exclude: [],
-      reporter: ['html', 'text-summary'],
+      reporter: ['html', 'text-summary', 'json'],
       thresholds: {
         functions: 1,
         lines: 1,
