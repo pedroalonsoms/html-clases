@@ -1,8 +1,9 @@
 import type { NextAuthConfig } from 'next-auth'
+import { paths } from './const/paths'
 
 export const authConfig = {
   pages: {
-    signIn: '/sign-in',
+    signIn: paths.signIn,
   },
   providers: [
     // added later in auth.ts since it requires bcrypt which is only compatible with Node.js
@@ -13,16 +14,16 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user
       if (isLoggedIn) {
         if (
-          nextUrl.pathname.startsWith('/sign-in') ||
-          nextUrl.pathname.startsWith('/sign-up')
+          nextUrl.pathname.startsWith(paths.signIn) ||
+          nextUrl.pathname.startsWith(paths.signUp)
         ) {
-          return Response.redirect(new URL('/all-characters', nextUrl))
+          return Response.redirect(new URL(paths.allCharacters, nextUrl))
         }
         return true
       } else {
         if (
-          nextUrl.pathname.startsWith('/sign-in') ||
-          nextUrl.pathname.startsWith('/sign-up')
+          nextUrl.pathname.startsWith(paths.signIn) ||
+          nextUrl.pathname.startsWith(paths.signUp)
         ) {
           return true
         } else {

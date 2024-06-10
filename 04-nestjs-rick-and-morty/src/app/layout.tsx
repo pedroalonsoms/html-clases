@@ -32,7 +32,7 @@ export default async function RootLayout({
                 <form
                   action={async () => {
                     'use server'
-                    await signOut({ redirectTo: '/sign-in' })
+                    await signOut({ redirectTo: paths.signIn })
                   }}
                 >
                   <button type='submit'>Sign Out</button>

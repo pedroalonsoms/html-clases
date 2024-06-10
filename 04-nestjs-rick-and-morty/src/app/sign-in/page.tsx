@@ -1,5 +1,6 @@
 'use client'
 
+import { paths } from '@/const/paths'
 import { signInUser } from '@/services/signInUser'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -24,7 +25,7 @@ export default function SignIn() {
           action={async (formData: FormData) => {
             try {
               await signInUser(formData)
-              router.push('/all-characters')
+              router.push(paths.allCharacters)
             } catch (error) {
               setIsError(true)
             }
@@ -62,7 +63,7 @@ export default function SignIn() {
 
         <p className='pt-10'>
           Not registered?{' '}
-          <Link className='hover:underline' href={'/sign-up'}>
+          <Link className='hover:underline' href={paths.signUp}>
             Sign Up
           </Link>
         </p>
